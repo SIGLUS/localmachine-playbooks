@@ -1,0 +1,15 @@
+- name: Install SIMAM
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  #vars:
+    #ansible_ssh_private_key_file: /snap/key.pem
+  tasks:
+    - name: Creating an empty file
+      file:
+        path: "/root/test.txt"
+        state: touch
+    - command: "ls -al /root/"
+      register: dir_out
+    - debug: var={{item}}
+      with_items: dir_out.stdout_lines
