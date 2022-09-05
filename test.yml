@@ -9,7 +9,7 @@
       file:
         path: "/root/test.txt"
         state: touch
-    - command: "ls -al /root/"
+    - command: "pwd"
       register: dir_out
     - debug: var={{item}}
       with_items: dir_out.stdout_lines
